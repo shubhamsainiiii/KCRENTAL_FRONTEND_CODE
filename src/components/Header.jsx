@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
-
+import logo from "../assets/images/logo.png";
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
 
@@ -52,12 +52,17 @@ const Header = () => {
         <header className="bg-[#340B53] text-white px-6 py-5 flex items-center justify-between shadow-sm fixed w-full z-50 top-0">
 
             {/* Logo */}
-            <NavLink to="/" className="text-2xl font-bold">
-                KC<span className="text-[#e2b82e]">Rental</span>
+            <NavLink to="/" className="flex items-center gap-2">
+                <img
+                    src={logo}
+                    alt="KC Rental Logo"
+                    className="h-14 sm:h-13 w-auto object-contain mt-0.5"
+                />
             </NavLink>
 
+
             {/* Desktop Menu */}
-            <nav className="hidden md:flex space-x-8 font-medium text-sm">
+            <nav className="hidden md:flex space-x-8 font-medium text-md">
                 {menuItems.map((item, i) => (
                     <NavLink
                         key={i}
