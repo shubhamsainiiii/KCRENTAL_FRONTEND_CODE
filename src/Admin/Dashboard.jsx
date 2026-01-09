@@ -12,7 +12,7 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen bg-linear-to-br from-[#3A153F] via-[#8234a1] to-[#3A153F] p-8">
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-4xl font-bold text-[#e2b82e] mb-8 text-center mt-12">Admin Dashboard</h1>
+                <h1 className="text-4xl font-bold text-[#e2b82e] mb-8 text-center mt-17">Admin Dashboard</h1>
 
                 {/* Action Buttons Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -57,7 +57,7 @@ const Dashboard = () => {
                 <hr className="my-12 border-[#e2b82e]" />
 
                 {/* Content Area */}
-                <div className="p-8">
+                <div className="">
                     {activeSection === 'add' ? (
                         <div>
                             {activeTab === 'garments' ? (

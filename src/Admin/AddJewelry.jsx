@@ -116,8 +116,8 @@ const AddJewelry = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 py-12">
-            <div className="w-full max-w-4xl backdrop-blur-xl bg-[#340B53] rounded-3xl shadow-2xl border border-[#e2b82e]">
+        <div className="min-h-screen flex items-center justify-center sm:px-4">
+            <div className="w-full max-w-6xl backdrop-blur-xl bg-[#340B53] rounded-3xl shadow-2xl border border-[#e2b82e]">
 
                 {/* Header */}
                 <div className="px-10 pt-10 pb-6 border-b border-slate-200 text-[#e2b82e]">
@@ -132,7 +132,7 @@ const AddJewelry = () => {
                 {/* Form */}
                 <form
                     onSubmit={handleSubmit}
-                    className="px-10 py-8 space-y-6 text-[#e2b82e]"
+                    className="px-5 sm:px-6 md:px-10 py-6 sm:py-8 space-y-5 sm:space-y-6 text-[#e2b82e]"
                 >
                     {/* Jewelry Name */}
                     <div>

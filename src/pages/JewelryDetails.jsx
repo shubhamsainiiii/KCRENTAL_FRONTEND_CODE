@@ -47,14 +47,21 @@ const JewelryDetails = () => {
 
     const sendWhatsApp = (action) => {
         if (!jewelry) return;
+
         const phone = "919116952396";
         const itemLink = `${window.location.origin}/jewelry/${id}`;
+
+        const priceText =
+            action === "rent"
+                ? `Rent Price: ₹${jewelry.price?.rentPerDay}/day`
+                : `Buy Price: ₹${jewelry.price?.buy}`;
+
         const text =
             `Hello KC Rental,\n` +
-            `I want to ${action} this jewelry item:\n` +
+            `I want to ${action} this jewelry:\n` +
             `Name: ${jewelry.name}\n` +
             `Category: ${jewelry.category}\n` +
-            `Price: ₹${jewelry.price}\n` +
+            `${priceText}\n` +
             `Size: ${selectedSize}\n` +
             `Link: ${itemLink}`;
 
@@ -191,7 +198,7 @@ const JewelryDetails = () => {
                     className="flex flex-col"
                 >
                     <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#e2b82e]">
-                       Name : {jewelry.name}
+                        Name : {jewelry.name}
                     </h1>
 
                     <p className="text-[#e2b82e] mb-4">Category : {jewelry.category}</p>

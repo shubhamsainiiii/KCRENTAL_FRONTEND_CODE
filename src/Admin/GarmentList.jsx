@@ -149,7 +149,7 @@ const GarmentList = () => {
         <div>
             {/* ================= EDIT MODE ================= */}
             {editGarment ? (
-                <div className="max-w-4xl mx-auto backdrop-blur-xl bg-[#340B53] rounded-3xl shadow-2xl border border-white/30 p-10 text-[#e2b82e]">
+                <div className="max-w-6xl mx-auto backdrop-blur-xl bg-[#340B53] rounded-3xl shadow-2xl border border-white/30 py-5 px-4 text-[#e2b82e]">
 
                     <h2 className="text-3xl font-bold mb-8">Edit Garment</h2>
 
@@ -343,10 +343,26 @@ const GarmentList = () => {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex justify-end gap-4 mt-8">
+                    <div className="flex 
+  flex-col sm:flex-row
+  items-stretch sm:items-center
+  justify-center sm:justify-end
+  gap-4 
+  mt-8">
                         <button
                             onClick={handleUpdate}
-                            className="flex items-center gap-2 bg-[#e2b82e] px-8 py-3 rounded-full text-black font-semibold hover:scale-105 shadow-lg transition-all duration-500 cursor-pointer"
+                            className="self-center
+    w-auto
+    flex items-center justify-center gap-2
+    bg-[#e2b82e]
+    px-8 py-3
+    rounded-full
+    text-black
+    font-semibold
+    hover:scale-105
+    shadow-lg
+    transition-all duration-500
+    cursor-pointer"
                         >
                             <FiSave />
                             Save
@@ -354,7 +370,16 @@ const GarmentList = () => {
 
                         <button
                             onClick={() => setEditGarment(null)}
-                            className="flex items-center gap-2 bg-gray-200 px-8 py-3 rounded-full text-black hover:bg-gray-300 transition-all duration-500 cursor-pointer"
+                            className="self-center
+    w-auto
+    flex items-center justify-center gap-2
+    bg-gray-200
+    px-8 py-3
+    rounded-full
+    text-black
+    hover:bg-gray-300
+    transition-all duration-500
+    cursor-pointer font-semibold"
                         >
                             <FiX />
                             Cancel
