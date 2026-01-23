@@ -31,6 +31,7 @@ const categories = [
 const JewelryList = () => {
     const [jewelry, setJewelry] = useState([]);
     const [editJewelry, setEditJewelry] = useState(null);
+    const [activeCategory, setActiveCategory] = useState("ALL JEWELRY");
 
     /* ================= FETCH ================= */
     const fetchJewelry = async () => {
@@ -46,6 +47,13 @@ const JewelryList = () => {
     useEffect(() => {
         fetchJewelry();
     }, []);
+
+    const filteredJewelry =
+        activeCategory === "ALL JEWELRY"
+            ? jewelry
+            : jewelry.filter(
+                (item) => item.category === activeCategory
+            );
 
     const handleDelete = async (id) => {
         const result = await Swal.fire({
@@ -398,9 +406,35 @@ const JewelryList = () => {
                     <h2 className="text-2xl font-bold mb-6 text-[#e2b82e] text-center">
                         All Jewelry
                     </h2>
+                    <div className="w-full py-4 px-4">
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {categories.map((cat, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`
+          px-6 py-2
+          rounded-full
+          border-2
+          text-sm md:text-base
+          font-semibold
+          tracking-wide
+          transition-all duration-300 cursor-pointer
+          ${activeCategory === cat
+                                            ? "bg-[#e2b82e] text-black border-[#e2b82e]"
+                                            : "text-[#e2b82e] border-[#e2b82e] hover:bg-[#e2b82e]/10"
+                                        }
+        `}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {jewelry.map((item) => (
+                        {filteredJewelry.map((item) => (
                             <div
                                 key={item._id}
                                 className="bg-[#3b0f5c] rounded-2xl shadow-2xl p-5 flex flex-col"

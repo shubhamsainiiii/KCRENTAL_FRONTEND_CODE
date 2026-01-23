@@ -49,6 +49,14 @@ const GarmentList = () => {
         fetchGarments();
     }, []);
 
+
+    const filteredGarments =
+        activeCategory === "ALL GARMENTS"
+            ? garments
+            : garments.filter(
+                (item) => item.category === activeCategory
+            );
+
     /* ================= DELETE ================= */
     const handleDelete = async (id) => {
         const result = await Swal.fire({
@@ -395,7 +403,7 @@ const GarmentList = () => {
                     </h2>
 
                     {/* ================= CATEGORY BUTTONS ================= */}
-                    <div className="w-full bg-[#4b1b5e] py-5 px-4">
+                    <div className="w-full py-4 px-4">
                         <div className="flex flex-wrap justify-center gap-4">
                             {categories.map((cat, index) => (
                                 <button
@@ -408,7 +416,7 @@ const GarmentList = () => {
           text-sm md:text-base
           font-semibold
           tracking-wide
-          transition-all duration-300
+          transition-all duration-300 cursor-pointer
           ${activeCategory === cat
                                             ? "bg-[#e2b82e] text-black border-[#e2b82e]"
                                             : "text-[#e2b82e] border-[#e2b82e] hover:bg-[#e2b82e]/10"
@@ -422,19 +430,23 @@ const GarmentList = () => {
                     </div>
 
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {garments.map((item) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+                        {filteredGarments.map((item) => (
                             <div
                                 key={item._id}
-                                className="bg-[#3b0f5c] rounded-2xl shadow-2xl p-5 flex flex-col"
+                                className=" bg-[#3A0D57]
+    rounded-2xl
+    shadow-[0_20px_60px_rgba(0,0,0,0.35)]
+    p-3
+    flex flex-col
+    transition-all duration-300
+    hover:-translate-y-1"
                             >
                                 {/* IMAGE FRAME (SAME AS JEWELRY) */}
-                                <div className="rounded-xl">
-                                    <div className="aspect-3/4 rounded-xl overflow-hidden">
-
+                                <div className="">
+                                    <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                                         <LazyLoadImage
                                             effect="blur"
-                                            wrapperProps={{ style: { transitionDelay: "1s" } }}
                                             src={getImageUrl(item.images?.[0]?.url)}
                                             alt={item.name}
                                             className="w-full h-full object-cover"
@@ -443,22 +455,10 @@ const GarmentList = () => {
                                 </div>
 
                                 {/* CONTENT */}
-                                <div className="mt-5 flex-1">
+                                <div className="mt-4 flex-1">
                                     <h3 className="text-xl font-bold text-yellow-400">
                                         {item.name}
                                     </h3>
-
-                                    <p className="mt-2 text-yellow-300">
-                                        Buy: ₹{item.price.buy}
-                                    </p>
-                                    <p className="text-yellow-300">
-                                        Rent: ₹{item.price.rentPerDay}/day
-                                    </p>
-
-                                    <p className="mt-1 text-sm text-yellow-400 uppercase tracking-wide">
-                                        {item.category}
-                                    </p>
-
                                     <p
                                         className={`mt-2 font-semibold ${item.isActive
                                             ? "text-green-400"
