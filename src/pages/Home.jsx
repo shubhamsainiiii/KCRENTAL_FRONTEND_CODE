@@ -13,6 +13,7 @@ import ImageSlider from "../Home/ImageSlider";
 // Images
 import rent from "../assets/images/rent.jpg";
 import buy from "../assets/images/buy.jpg";
+import sell from "../assets/images/sell.jpg";
 
 import slider1 from "../assets/images/slider1.jpg";
 import slider2 from "../assets/images/slider2.jpg";
@@ -86,7 +87,7 @@ const Home = () => {
           {[
             { title: "RENT", text: "Rent Designer Wear", img: rent, path: "/garments" },
             { title: "BUY", text: "Pre-loved Luxury Styles", img: buy, path: "/garments" },
-            { title: "SERVICES", text: "Styling & Jewelry Rental", img: rent, path: "/services" },
+            { title: "SERVICES", text: "Styling & Jewelry Rental", img: sell, path: "/services" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -142,7 +143,7 @@ const Home = () => {
               className="bg-[#340B53] rounded-2xl overflow-hidden shadow-md cursor-pointer"
             >
               {/* IMAGE – FULL WIDTH, NO GAP */}
-              <div className="h-72 w-full overflow-hidden">
+              <div className="h-90 w-full overflow-hidden">
                 <motion.div
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.12 }}
@@ -213,7 +214,7 @@ const Home = () => {
                 className="bg-[#340B53] rounded-2xl overflow-hidden shadow-md cursor-pointer"
               >
                 {/* IMAGE – FULL WIDTH */}
-                <div className="h-72 w-full overflow-hidden">
+                <div className="h-90 w-full overflow-hidden">
                   <motion.div
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.12 }}

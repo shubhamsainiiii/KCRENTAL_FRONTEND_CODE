@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaHistory, FaBullseye, FaHeart, FaArrowRight } from "react-icons/fa";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -19,7 +19,7 @@ const fadeUp = {
 };
 
 const fadeLeft = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, x: -30 },
     visible: {
         opacity: 1,
         x: 0,
@@ -28,7 +28,7 @@ const fadeLeft = {
 };
 
 const fadeRight = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: 30 },
     visible: {
         opacity: 1,
         x: 0,
@@ -48,28 +48,22 @@ const About = () => {
 
     return (
         <div className="min-h-screen bg-linear-to-br from-[#3A153F] via-[#8234a1] to-[#3A153F] text-gray-800 overflow-x-hidden">
-
-            {/* ===== HERO ===== */}
             {/* ===== HERO ===== */}
             <section className="relative h-svh md:h-screen mt-16 flex items-center justify-center bg-pink-900 overflow-hidden">
-
                 {/* Desktop Image */}
                 <img
                     src={aboutImgDesktop}
                     alt="About Background Desktop"
                     className="absolute inset-0 w-full h-full object-cover hidden md:block opacity-80"
                 />
-
                 {/* Mobile Image */}
                 <img
                     src={aboutImgMobile}
                     alt="About Background Mobile"
                     className="absolute inset-0 w-full h-full object-cover block md:hidden opacity-80"
                 />
-
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/40" />
-
                 {/* Content */}
                 <motion.div
                     initial="hidden"
@@ -86,55 +80,106 @@ const About = () => {
                 </motion.div>
             </section>
 
-
             {/* ===== OUR STORY ===== */}
-            <section className="py-20 px-6 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <section className="py-12 px-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
                     <motion.div
                         variants={fadeLeft}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.3 }}
-                        className="space-y-6"
+                        className="flex flex-col justify-center h-full py-8"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#e2b82e]">
-                            Our Story
-                        </h2>
-                        <div className="w-20 h-1 bg-[#e2b82e]" />
-                        <p className="text-lg text-[#e2b82e] leading-relaxed">
-                            KC Rental Outfits & Boutique started with a simple idea:
-                            why buy expensive outfits that you only wear once?
-                        </p>
-                        <p className="text-lg text-[#e2b82e] leading-relaxed">
-                            From a small collection to 6000+ designer outfits,
-                            we proudly serve thousands of fashion-forward customers.
-                        </p>
+                        {/* TOP CONTENT */}
+                        <div className="space-y-3">
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#e2b82e]">
+                                Our Story
+                            </h2>
 
-                        <button
-                            onClick={() => navigate("/contact")}
-                            className="flex items-center gap-2 text-[#e2b82e] font-bold hover:gap-4 transition-all"
-                        >
-                            Visit Our Store <FaArrowRight />
-                        </button>
+                            <div className="w-20 h-1 bg-[#e2b82e]" />
+
+                            <p className="text-lg text-[#e2b82e] leading-relaxed">
+                                KC Rental Outfits & Boutique started with a simple idea —
+                                <span className="font-semibold">
+                                    {" "}why buy expensive outfits that you only wear once?
+                                </span>
+                            </p>
+
+                            <p className="text-lg text-[#e2b82e] leading-relaxed">
+                                We believed that everyone deserves to look extraordinary on their
+                                special moments without spending a fortune. What began as a small,
+                                thoughtfully curated collection soon transformed into a trusted
+                                destination for premium rental fashion.
+                            </p>
+
+                            <p className="text-lg text-[#e2b82e] leading-relaxed">
+                                From a humble beginning to a collection of over{" "}
+                                <span className="font-semibold">6000+ designer outfits</span>,
+                                we proudly serve thousands of fashion-forward customers across
+                                weddings, engagements, festivals, sangeet nights, receptions,
+                                and grand celebrations.
+                            </p>
+                            <p className="text-lg text-[#e2b82e] leading-relaxed">
+                                We focus on quality, fit, and detailing — ensuring every garment
+                                feels as luxurious as it looks. With personalized styling support
+                                and flexible rental options, we make designer fashion accessible,
+                                affordable, and unforgettable.
+                            </p>
+
+                            <p className="text-lg text-[#e2b82e] leading-relaxed">
+                                At KC Rental Outfits & Boutique, we don’t just rent outfits —
+                                <span className="font-semibold">
+                                    {" "}we help you create memories, confidence, and timeless moments.
+                                </span>
+                            </p>
+                        </div>
                     </motion.div>
-
                     <motion.div
                         variants={fadeRight}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.3 }}
-                        className="relative h-100 rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative h-148 rounded-2xl overflow-hidden shadow-2xl"
                     >
                         <LazyLoadImage
                             effect="blur"
                             wrapperProps={{ style: { transitionDelay: "1s" } }}
                             src={buy}
                             alt="Our Story"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
                         />
                     </motion.div>
                 </div>
             </section>
+            {/* ===== VISIT OUR STORE BUTTON ===== */}
+            <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                className="flex justify-center"
+            >
+                <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate("/contact")}
+                    className="
+      flex items-center gap-4
+      px-14 py-3
+      rounded-full
+      border border-[#e2b82e]
+      text-[#e2b82e]
+      font-semibold text-xl
+      hover:bg-[#e2b82e]
+      hover:text-black
+      transition-all duration-500 cursor-pointer
+    "
+                >
+                    Visit Our Store
+                    <FaArrowRight className="text-2xl" />
+                </motion.button>
+            </motion.div>
+
 
             {/* ===== MISSION / VALUES ===== */}
             <section className="py-20 px-6">

@@ -235,7 +235,7 @@ const GarmentList = () => {
                                     <img
                                         key={i}
                                         src={getImageUrl(img.url)}
-                                        className="h-32 w-full object-cover rounded-xl border"
+                                        className="h-64 w-full object-cover rounded-xl border"
                                     />
                                 ))}
                             </div>
@@ -266,7 +266,7 @@ const GarmentList = () => {
                                     <img
                                         key={i}
                                         src={URL.createObjectURL(file)}
-                                        className="h-32 w-full object-cover rounded-xl border border-[#e2b82e]"
+                                        className="h-64 w-full object-cover rounded-xl border border-[#e2b82e]"
                                     />
                                 ))}
                             </div>

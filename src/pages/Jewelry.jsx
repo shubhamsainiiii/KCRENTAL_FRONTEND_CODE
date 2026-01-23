@@ -125,31 +125,35 @@ const Jewelry = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4 }}
                             onClick={() => navigate(`/jewelry/${item._id}`)}
-                            className="bg-[#340B53]  rounded-2xl shadow-md p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                            className="bg-[#340B53] rounded-3xl shadow-xl p-4 cursor-pointer hover:scale-[1.02] transition-all"
                         >
                             {/* IMAGE */}
-                            <div className="h-48 rounded-xl mb-4 overflow-hidden">
-                                <LazyLoadImage
-                                    effect="blur"
-                                    wrapperProps={{ style: { transitionDelay: "1s" } }}
-                                    src={getImageUrl(item.images?.[0]?.url)}
-                                    alt={item.name}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
+                            <div className="rounded-2xl bg-[#340B53] p-3">
+                                <div className="aspect-[3/4] rounded-xl overflow-hidden">
 
-                            <h3 className="font-semibold text-lg mb-1 text-[#e2b82e]">
-                                {item.name}
-                            </h3>
-                            <p className="text-sm text-[#e2b82e] mb-2">
-                                {item.category}
-                            </p>
-                            <p className="font-semibold text-[#e2b82e]">
-                                Rent ₹{item.price?.rentPerDay}/day
-                            </p>
-                            <p className="font-semibold text-[#e2b82e]">
-                                Buy ₹{item.price?.buy}
-                            </p>
+                                    <LazyLoadImage
+                                        effect="blur"
+                                        wrapperProps={{ style: { transitionDelay: "1s" } }}
+                                        src={getImageUrl(item.images?.[0]?.url)}
+                                        alt={item.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div className="pt-4 px-2">
+                                <h3 className="text-[#e2b82e] font-semibold text-lg leading-snug">
+                                    {item.name}
+                                </h3>
+                                <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
+                                    {item.category}
+                                </p>
+                                <p className="mt-3 font-semibold text-[#e2b82e]">
+                                    Rent ₹{item.price?.rentPerDay}/day
+                                </p>
+                                <p className="font-semibold text-[#e2b82e]">
+                                    Buy ₹{item.price?.buy}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
@@ -157,7 +161,7 @@ const Jewelry = () => {
 
             {/* ===== EMPTY STATE ===== */}
             {!loading && filteredJewelry.length === 0 && (
-                <p className="text-center text-gray-500 mt-20">
+                <p className="text-center font-bold text-[#e2b82e] mt-20">
                     No jewelry found in this category.
                 </p>
             )}

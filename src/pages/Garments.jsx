@@ -123,35 +123,39 @@ const Garments = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4 }}
                             onClick={() => navigate(`/garments/${item._id}`)}
-                            className="bg-[#340B53] rounded-2xl shadow-md p-6 hover:shadow-xl transition-all cursor-pointer"
+                            className="bg-[#340B53] rounded-3xl shadow-xl p-4 cursor-pointer hover:scale-[1.02] transition-all"
                         >
-                            {/* IMAGE */}
-                            <div className="h-48 rounded-xl mb-4 overflow-hidden">
-                                <LazyLoadImage
-                                    effect="blur"
-                                    wrapperProps={{ style: { transitionDelay: "1s" } }}
-                                    src={getImageUrl(item.images?.[0]?.url)}
-                                    alt={item.name}
-                                    className="w-full h-full object-cover"
-                                />
+                            {/* IMAGE FRAME */}
+                            <div className="rounded-2xl bg-[#340B53] p-3">
+                                <div className="aspect-[3/4] rounded-xl overflow-hidden">
+                                    <LazyLoadImage
+                                        src={getImageUrl(item.images?.[0]?.url)}
+                                        alt={item.name}
+                                        effect="blur"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
                             </div>
 
-                            <h3 className="font-semibold text-lg mb-1 text-[#e2b82e]">
-                                {item.name}
-                            </h3>
+                            {/* CONTENT */}
+                            <div className="pt-4 px-2">
+                                <h3 className="text-[#e2b82e] font-semibold text-lg leading-snug">
+                                    {item.name}
+                                </h3>
 
-                            <p className="text-sm text-[#e2b82e] mb-2">
-                                {item.category}
-                            </p>
+                                <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
+                                    {item.category}
+                                </p>
 
-                            {/* ✅ NEW SCHEMA PRICE */}
-                            <p className="font-semibold text-[#e2b82e]">
-                                Rent ₹{item.price?.rentPerDay}/day
-                            </p>
-                            <p className="font-semibold text-[#e2b82e]">
-                                Buy ₹{item.price?.buy}
-                            </p>
+                                <p className="mt-3 font-semibold text-[#e2b82e]">
+                                    Rent ₹{item.price?.rentPerDay}/day
+                                </p>
+                                <p className="font-semibold text-[#e2b82e]">
+                                    Buy ₹{item.price?.buy}
+                                </p>
+                            </div>
                         </motion.div>
+
                     ))}
                 </div>
             )}

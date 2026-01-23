@@ -119,13 +119,13 @@ const JewelryDetails = () => {
                         initial={{ opacity: 0, scale: 0.97 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
-                        className="w-full h-105 rounded-2xl overflow-hidden shadow-lg mb-5"
+                        className="w-full max-h-164 rounded-2xl flex items-center justify-center overflow-hidden mb-4"
                     >
                         {selectedType === "video" ? (
                             <video
                                 src={getImageUrl(selectedMedia)}
                                 controls
-                                className="w-full h-full object-cover"
+                                className="max-w-full max-h-full object-contain"
                             />
                         ) : (
                             <LazyLoadImage
@@ -147,7 +147,7 @@ const JewelryDetails = () => {
                                     setSelectedMedia(img.url);
                                     setSelectedType("image");
                                 }}
-                                className={`w-24 h-24 rounded-xl overflow-hidden cursor-pointer border shrink-0 bg-white
+                                className={`w-24 h-28 rounded-xl overflow-hidden cursor-pointer border shrink-0 bg-white
                                 ${selectedMedia === img.url
                                         ? "border-[#e2b82e]"
                                         : "border-gray-300"
@@ -170,7 +170,7 @@ const JewelryDetails = () => {
                                     setSelectedMedia(jewelry.video.url);
                                     setSelectedType("video");
                                 }}
-                                className={`relative w-24 h-24 rounded-xl overflow-hidden cursor-pointer border shrink-0 bg-black
+                                className={`relative w-24 h-28 rounded-xl overflow-hidden cursor-pointer border shrink-0 bg-black
                                 ${selectedType === "video"
                                         ? "border-[#e2b82e]"
                                         : "border-gray-300"
@@ -184,7 +184,7 @@ const JewelryDetails = () => {
                                     playsInline
                                     className="w-full h-full object-cover opacity-60"
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                                     <FaVideo className="text-white text-xl" />
                                 </div>
                             </motion.div>
@@ -203,10 +203,10 @@ const JewelryDetails = () => {
 
                     <p className="text-[#e2b82e] mb-4">Category : {jewelry.category}</p>
 
-                    <p className="text-2xl text-[#e2b82e] font-semibold mb-6">
+                    <p className="text-2xl text-[#e2b82e] font-semibold mb-1">
                         Rent ₹ : {jewelry.price?.rentPerDay}/day
                     </p>
-                    <p className="text-lg text-[#e2b82e] mb-6">
+                    <p className="text-2xl text-[#e2b82e] font-semibold mb-6">
                         Buy ₹ : {jewelry.price?.buy}
                     </p>
 
@@ -220,7 +220,7 @@ const JewelryDetails = () => {
                                     whileTap={{ scale: 0.95 }}
                                     key={size}
                                     onClick={() => setSelectedSize(size)}
-                                    className={`px-4 py-2 rounded-full border transition-all duration-300 cursor-pointer
+                                    className={`px-4 py-2 rounded-full border transition-all duration-300 cursor-pointer font-bold
                                     ${selectedSize === size
                                             ? "bg-[#e2b82e]  text-black  border-gray-500"
                                             : "text-[#e2b82e] border-[#e2b82e] hover:bg-black/10"

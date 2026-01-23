@@ -123,13 +123,13 @@ const GarmentDetails = () => {
                         initial={{ opacity: 0, scale: 0.97 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
-                        className="w-full h-105 rounded-2xl overflow-hidden shadow-lg mb-5"
+                        className="w-full max-h-164 rounded-2xl flex items-center justify-center overflow-hidden mb-4"
                     >
                         {selectedType === "video" ? (
                             <video
                                 src={getImageUrl(selectedMedia)}
                                 controls
-                                className="w-full h-full object-cover"
+                                className="max-w-full max-h-full object-contain"
                             />
                         ) : (
                             <LazyLoadImage
@@ -151,7 +151,7 @@ const GarmentDetails = () => {
                                     setSelectedMedia(getImageUrl(img.url));
                                     setSelectedType("image");
                                 }}
-                                className={`w-24 h-24 rounded-xl overflow-hidden cursor-pointer border shrink-0
+                                className={`w-24 h-28 rounded-xl overflow-hidden cursor-pointer border shrink-0
                                 ${selectedType === "image" &&
                                         selectedMedia === getImageUrl(img.url)
                                         ? "border-[#e2b82e]"
@@ -175,7 +175,7 @@ const GarmentDetails = () => {
                                     setSelectedMedia(getImageUrl(product.video.url));
                                     setSelectedType("video");
                                 }}
-                                className={`relative w-24 h-24 rounded-xl overflow-hidden cursor-pointer border shrink-0
+                                className={`relative w-24 h-28 rounded-xl overflow-hidden cursor-pointer border shrink-0 bg-black
                                 ${selectedType === "video"
                                         ? "border-[#e2b82e]"
                                         : "border-gray-300"
@@ -187,7 +187,7 @@ const GarmentDetails = () => {
                                     loop
                                     autoPlay
                                     playsInline
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover opacity-60"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                                     <FaVideo className="text-white text-xl" />
@@ -203,7 +203,7 @@ const GarmentDetails = () => {
                     className="flex flex-col"
                 >
                     <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#e2b82e]">
-                      Name : {product.name}
+                        Name : {product.name}
                     </h1>
 
                     <p className=" text-[#e2b82e] mb-4">Category : {product.category}</p>
@@ -211,7 +211,7 @@ const GarmentDetails = () => {
                     <p className="text-2xl text-[#e2b82e] font-semibold mb-1">
                         Rent ₹ : {product.price?.rentPerDay}/day
                     </p>
-                    <p className="text-lg text-[#e2b82e] mb-6">
+                    <p className="text-2xl font-semibold text-[#e2b82e] mb-6">
                         Buy ₹ : {product.price?.buy}
                     </p>
 
