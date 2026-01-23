@@ -241,7 +241,7 @@ const AddGarment = () => {
 
                             {/* ✅ IMAGE PREVIEW */}
                             {images.length > 0 && (
-                                <div className="grid grid-cols-2 gap-3 mt-4">
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                                     {images.map((img, i) => (
                                         <img
                                             key={i}
@@ -277,7 +277,7 @@ const AddGarment = () => {
                                 <video
                                     controls
                                     src={URL.createObjectURL(video)}
-                                    className="mt-4 w-full h-40 rounded-xl border border-[#e2b82e] object-contain"
+                                    className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e] mt-4"
                                 />
                             )}
                         </div>

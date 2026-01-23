@@ -447,7 +447,7 @@ const JewelryList = () => {
                             >
                                 {/* IMAGE FRAME */}
                                 <div className="">
-                                    <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                                    <div className="rounded-2xl overflow-hidden aspect-3/4">
                                         <LazyLoadImage
                                             effect="blur"
                                             wrapperProps={{ style: { transitionDelay: "1s" } }}

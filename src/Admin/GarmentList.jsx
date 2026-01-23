@@ -251,7 +251,7 @@ const GarmentList = () => {
                         )}
 
                         {/* Upload Button */}
-                        <label className="inline-flex items-center gap-2 cursor-pointer bg-slate-900 text-[#e2b82e] px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-700 transition">
+                        <label className="inline-flex items-center gap-2 cursor-pointer bg-slate-900 text-[#e2b82e] px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-700 transition-all">
                             <FiImage className="text-lg" />
                             Update Images
                             <input
@@ -444,7 +444,7 @@ const GarmentList = () => {
                             >
                                 {/* IMAGE FRAME (SAME AS JEWELRY) */}
                                 <div className="">
-                                    <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                                    <div className="rounded-2xl overflow-hidden aspect-3/4">
                                         <LazyLoadImage
                                             effect="blur"
                                             src={getImageUrl(item.images?.[0]?.url)}
