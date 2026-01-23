@@ -31,11 +31,11 @@ const sliderData = [
 
 /* ================= ANIMATIONS ================= */
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -52,11 +52,11 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const garmentsRes = await API.get("/garment/all");
-        const jewelryRes = await API.get("/jewelry/all");
+        const gRes = await API.get("/garment/all");
+        const jRes = await API.get("/jewelry/all");
 
-        setGarments(garmentsRes.data.slice(0, 4));
-        setJewelry(jewelryRes.data.slice(0, 4));
+        setGarments(gRes.data.slice(0, 4));
+        setJewelry(jRes.data.slice(0, 4));
       } catch (err) {
         console.error("Home API Error:", err);
       }
@@ -65,18 +65,15 @@ const Home = () => {
   }, []);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      className="bg-linear-to-br from-[#3A153F] via-[#8234a1] to-[#3A153F] text-gray-900"
-    >
+    <section className="bg-linear-to-br from-[#3A153F] via-[#8234a1] to-[#3A153F] text-gray-800">
+
       {/* ================= HERO ================= */}
-      <motion.section variants={fadeUp} className="mb-28">
+      <motion.section variants={fadeUp} initial="hidden" animate="visible">
         <ImageSlider slides={sliderData} />
       </motion.section>
 
       {/* ================= RENT / BUY ================= */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-28">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mt-28">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -116,68 +113,63 @@ const Home = () => {
                 </p>
               </div>
             </motion.div>
-
           ))}
         </motion.div>
       </section>
 
       {/* ================= GARMENTS ================= */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="text-center mb-14">
-          <h2 className="text-4xl text-[#e2b82e] font-bold">Garments</h2>
-          <p className="text-yellow-300 mt-2">Curated designer wear for every occasion</p>
-        </motion.div>
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-[#e2b82e]">Garments</h2>
+          <p className="text-yellow-300 mt-2">
+            Curated designer wear for every occasion
+          </p>
+        </div>
 
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
         >
           {garments.map((item) => (
             <motion.div
               key={item._id}
               variants={fadeUp}
-              whileHover={{ y: -6 }}
               onClick={() => navigate(`/garments/${item._id}`)}
-              className="bg-[#340B53] rounded-2xl overflow-hidden shadow-md cursor-pointer"
+              className="bg-[#340B53] rounded-3xl shadow-xl p-4 cursor-pointer hover:scale-[1.02] transition-all"
             >
-              {/* IMAGE – FULL WIDTH, NO GAP */}
-              <div className="h-90 w-full overflow-hidden">
-                <motion.div
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.12 }}
-                  transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full"
-                >
+              {/* IMAGE FRAME (SAME AS GARMENTS PAGE) */}
+              <div className="rounded-2xl bg-[#340B53] p-3">
+                <div className="aspect-3/4 rounded-xl overflow-hidden">
                   <LazyLoadImage
-                    effect="blur"
                     src={getImageUrl(item.images?.[0]?.url)}
                     alt={item.name}
-                    wrapperClassName="block w-full h-full"
-                    className="w-full h-full object-cover block"
+                    effect="blur"
+                    className="w-full h-full object-cover"
                   />
-                </motion.div>
+                </div>
               </div>
 
               {/* CONTENT */}
-              <div className="p-5">
-                <h3 className="font-semibold text-lg truncate text-[#D4AF37]">
+              <div className="pt-4 px-2">
+                <h3 className="text-[#e2b82e] font-semibold text-lg leading-snug">
                   {item.name}
                 </h3>
 
-                <p className="text-sm text-[#F3D578] uppercase">
+                <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
                   {item.category}
                 </p>
-                <p className="mt-2 font-bold text-[#D4AF37]">
-                  Buy ₹{item.price?.buy}
-                </p>
-                <p className="mt-2 font-bold text-[#D4AF37]">
+
+                <p className="mt-3 font-semibold text-[#e2b82e]">
                   Rent ₹{item.price?.rentPerDay}/day
+                </p>
+                <p className="font-semibold text-[#e2b82e]">
+                  Buy ₹{item.price?.buy}
                 </p>
               </div>
             </motion.div>
-
           ))}
         </motion.div>
 
@@ -192,78 +184,62 @@ const Home = () => {
       </section>
 
       {/* ================= JEWELRY ================= */}
-      <section className="pb-10">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="text-center mb-14">
-            <h2 className="text-4xl text-[#e2b82e] font-bold">Exquisite Jewelry</h2>
-            <p className="text-yellow-300 mt-2">Timeless elegance, handcrafted designs</p>
-          </motion.div>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-[#e2b82e]">Exquisite Jewelry</h2>
+          <p className="text-yellow-300 mt-2">
+            Timeless elegance, handcrafted designs
+          </p>
+        </div>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
-          >
-            {jewelry.map((item) => (
-              <motion.div
-                key={item._id}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                onClick={() => navigate(`/jewelry/${item._id}`)}
-                className="bg-[#340B53] rounded-2xl overflow-hidden shadow-md cursor-pointer"
-              >
-                {/* IMAGE – FULL WIDTH */}
-                <div className="h-90 w-full overflow-hidden">
-                  <motion.div
-                    initial={{ scale: 1 }}
-                    whileHover={{ scale: 1.12 }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full"
-                  >
-                    <LazyLoadImage
-                      effect="blur"
-                      src={getImageUrl(item.images?.[0]?.url)}
-                      alt={item.name}
-                      wrapperClassName="block w-full h-full"
-                      className="w-full h-full object-cover block"
-                    />
-                  </motion.div>
-                </div>
-
-                {/* CONTENT */}
-                <div className="p-5">
-                  <h3 className="font-semibold text-lg truncate text-[#D4AF37]">
-                    {item.name}
-                  </h3>
-
-                  <p className="text-sm text-[#F3D578] uppercase">
-                    {item.category}
-                  </p>
-
-                  <p className="mt-2 font-bold text-[#D4AF37]">
-                    Buy ₹{item.price?.buy}
-                  </p>
-                  <p className="mt-2 font-bold text-[#D4AF37]">
-                    Rent ₹{item.price?.rentPerDay}/day
-                  </p>
-                </div>
-              </motion.div>
-
-            ))}
-          </motion.div>
-
-          <div className="text-center mt-14">
-            <button
-              onClick={() => navigate("/jewelry")}
-              className="inline-flex font-semibold text-[#e2b82e] hover:text-black items-center gap-3 px-10 py-3 rounded-full border border-yellow-400 hover:bg-yellow-500/90 transition-all duration-500 cursor-pointer hover:border-gray-700"
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {jewelry.map((item) => (
+            <motion.div
+              key={item._id}
+              onClick={() => navigate(`/jewelry/${item._id}`)}
+              className="bg-[#340B53] rounded-3xl shadow-xl p-4 cursor-pointer hover:scale-[1.02] transition-all"
             >
-              Explore Jewelry <FaArrowRight />
-            </button>
-          </div>
+              <div className="rounded-2xl bg-[#340B53] p-3">
+                <div className="aspect-3/4 rounded-xl overflow-hidden">
+                  <LazyLoadImage
+                    src={getImageUrl(item.images?.[0]?.url)}
+                    alt={item.name}
+                    effect="blur"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-4 px-2">
+                <h3 className="text-[#e2b82e] font-semibold text-lg leading-snug">
+                  {item.name}
+                </h3>
+
+                <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
+                  {item.category}
+                </p>
+
+                <p className="mt-3 font-semibold text-[#e2b82e]">
+                  Rent ₹{item.price?.rentPerDay}/day
+                </p>
+                <p className="font-semibold text-[#e2b82e]">
+                  Buy ₹{item.price?.buy}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mt-14">
+          <button
+            onClick={() => navigate("/jewelry")}
+            className="inline-flex font-semibold text-[#e2b82e] hover:text-black items-center gap-3 px-10 py-3 rounded-full border border-yellow-400 hover:bg-yellow-500/90 transition-all duration-500 cursor-pointer"
+          >
+            Explore All Jewelry <FaArrowRight />
+          </button>
         </div>
       </section>
-    </motion.div>
+    </section>
   );
 };
 

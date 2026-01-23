@@ -15,7 +15,7 @@ import {
     FiSave,
     FiX
 } from "react-icons/fi";
-
+// const [categories, setCategories] = useState([]);
 
 
 const categories = [
@@ -32,6 +32,7 @@ const categories = [
 const GarmentList = () => {
     const [garments, setGarments] = useState([]);
     const [editGarment, setEditGarment] = useState(null);
+    const [activeCategory, setActiveCategory] = useState("ALL GARMENTS");
 
     /* ================= FETCH ================= */
     const fetchGarments = async () => {
@@ -235,7 +236,7 @@ const GarmentList = () => {
                                     <img
                                         key={i}
                                         src={getImageUrl(img.url)}
-                                        className="h-64 w-full object-cover rounded-xl border"
+                                        className="h-64 w-full object-cover rounded-xl border border-[#e2b82e]"
                                     />
                                 ))}
                             </div>
@@ -284,7 +285,7 @@ const GarmentList = () => {
                             <video
                                 controls
                                 src={getImageUrl(editGarment.video.url)}
-                                className="w-full max-h-48 rounded-xl border shadow object-contain mb-4"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e]"
                             />
                         )}
 
@@ -310,7 +311,7 @@ const GarmentList = () => {
                             <video
                                 controls
                                 src={URL.createObjectURL(editGarment.newVideo)}
-                                className="w-full max-h-48 mt-4 rounded-xl border shadow object-contain"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e]"
                             />
                         )}
                     </div>
@@ -393,6 +394,34 @@ const GarmentList = () => {
                         All Garments
                     </h2>
 
+                    {/* ================= CATEGORY BUTTONS ================= */}
+                    <div className="w-full bg-[#4b1b5e] py-5 px-4">
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {categories.map((cat, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`
+          px-6 py-2
+          rounded-full
+          border-2
+          text-sm md:text-base
+          font-semibold
+          tracking-wide
+          transition-all duration-300
+          ${activeCategory === cat
+                                            ? "bg-[#e2b82e] text-black border-[#e2b82e]"
+                                            : "text-[#e2b82e] border-[#e2b82e] hover:bg-[#e2b82e]/10"
+                                        }
+        `}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {garments.map((item) => (
                             <div
@@ -401,13 +430,16 @@ const GarmentList = () => {
                             >
                                 {/* IMAGE FRAME (SAME AS JEWELRY) */}
                                 <div className="rounded-xl">
-                                    <LazyLoadImage
-                                        effect="blur"
-                                        wrapperProps={{ style: { transitionDelay: "1s" } }}
-                                        src={getImageUrl(item.images?.[0]?.url)}
-                                        alt={item.name}
-                                        className="h-52 w-full object-cover rounded-lg"
-                                    />
+                                    <div className="aspect-3/4 rounded-xl overflow-hidden">
+
+                                        <LazyLoadImage
+                                            effect="blur"
+                                            wrapperProps={{ style: { transitionDelay: "1s" } }}
+                                            src={getImageUrl(item.images?.[0]?.url)}
+                                            alt={item.name}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* CONTENT */}
