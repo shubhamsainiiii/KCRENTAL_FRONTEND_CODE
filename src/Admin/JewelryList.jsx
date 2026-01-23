@@ -437,17 +437,25 @@ const JewelryList = () => {
                         {filteredJewelry.map((item) => (
                             <div
                                 key={item._id}
-                                className="bg-[#3b0f5c] rounded-2xl shadow-2xl p-5 flex flex-col"
+                                className="bg-[#3A0D57]
+    rounded-2xl
+    shadow-[0_20px_60px_rgba(0,0,0,0.35)]
+    p-3
+    flex flex-col
+    transition-all duration-300
+    hover:-translate-y-1"
                             >
                                 {/* IMAGE FRAME */}
-                                <div className="rounded-xl">
-                                    <LazyLoadImage
-                                        effect="blur"
-                                        wrapperProps={{ style: { transitionDelay: "1s" } }}
-                                        src={getImageUrl(item.images?.[0]?.url)}
-                                        alt={item.name}
-                                        className="h-52 w-full object-cover rounded-lg"
-                                    />
+                                <div className="">
+                                    <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                                        <LazyLoadImage
+                                            effect="blur"
+                                            wrapperProps={{ style: { transitionDelay: "1s" } }}
+                                            src={getImageUrl(item.images?.[0]?.url)}
+                                            alt={item.name}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* CONTENT */}
@@ -455,17 +463,6 @@ const JewelryList = () => {
                                     <h3 className="text-xl font-bold text-yellow-400">
                                         {item.name}
                                     </h3>
-
-                                    <p className="mt-2 text-yellow-300">
-                                        Buy: ₹{item.price.buy}
-                                    </p>
-                                    <p className="text-yellow-300">
-                                        Rent: ₹{item.price.rentPerDay}/day
-                                    </p>
-
-                                    <p className="mt-1 text-sm text-yellow-400 uppercase tracking-wide">
-                                        {item.category}
-                                    </p>
 
                                     <p
                                         className={`mt-2 font-semibold ${item.isActive ? "text-green-400" : "text-red-400"
