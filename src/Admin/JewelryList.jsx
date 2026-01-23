@@ -246,7 +246,7 @@ const JewelryList = () => {
                                     <img
                                         key={i}
                                         src={getImageUrl(img.url)}
-                                        className="h-32 w-full object-cover rounded-xl border"
+                                        className="h-64 w-full object-cover rounded-xl border border-[#e2b82e]"
                                     />
                                 ))}
                             </div>
@@ -278,7 +278,7 @@ const JewelryList = () => {
                                     <img
                                         key={i}
                                         src={URL.createObjectURL(file)}
-                                        className="h-32 w-full object-cover rounded-xl border border-[#e2b82e]"
+                                        className="h-64 w-full object-cover rounded-xl border border-[#e2b82e]"
                                     />
                                 ))}
                             </div>
@@ -296,7 +296,7 @@ const JewelryList = () => {
                             <video
                                 controls
                                 src={getImageUrl(editJewelry.video.url)}
-                                className="w-full max-h-48 rounded-xl border shadow object-contain mb-4"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e] mb-5"
                             />
                         )}
 
@@ -323,7 +323,7 @@ const JewelryList = () => {
                             <video
                                 controls
                                 src={URL.createObjectURL(editJewelry.newVideo)}
-                                className="w-full max-h-48 mt-4 rounded-xl border shadow object-contain"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e] mt-5"
                             />
                         )}
                     </div>

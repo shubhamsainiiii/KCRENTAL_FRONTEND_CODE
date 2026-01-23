@@ -293,7 +293,7 @@ const GarmentList = () => {
                             <video
                                 controls
                                 src={getImageUrl(editGarment.video.url)}
-                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e]"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e] mb-5"
                             />
                         )}
 
@@ -319,7 +319,7 @@ const GarmentList = () => {
                             <video
                                 controls
                                 src={URL.createObjectURL(editGarment.newVideo)}
-                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e]"
+                                className="h-70 w-100 object-cover rounded-xl border border-[#e2b82e] mt-5"
                             />
                         )}
                     </div>
