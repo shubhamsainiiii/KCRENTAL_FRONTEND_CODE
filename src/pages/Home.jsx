@@ -21,7 +21,7 @@ import slider3 from "../assets/images/slider4.png";
 
 import slidermobile1 from "../assets/images/slidermobile1.jpg";
 import slidermobile2 from "../assets/images/slidermobile2.jpg";
-import slidermobile3 from "../assets/images/slidermobile4.jpg";
+import slidermobile3 from "../assets/images/slidermobile3.jpg";
 
 const sliderData = [
   { desktop: slider1, mobile: slidermobile1 },
