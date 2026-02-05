@@ -18,7 +18,6 @@ const AddJewelry = () => {
     const [form, setForm] = useState({
         name: "",
         buyPrice: "",
-        rentPerDay: "",
         category: "",
         description: "",
     });
@@ -37,13 +36,7 @@ const AddJewelry = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (
-            !form.name ||
-            !form.buyPrice ||
-            !form.rentPerDay ||
-            !form.category ||
-            !form.description
-        ) {
+        if (!form.name || !form.buyPrice || !form.category || !form.description) {
             toast.error("Please fill in all fields");
             return;
         }
@@ -79,8 +72,7 @@ const AddJewelry = () => {
                 category: form.category,
                 description: form.description,
                 price: {
-                    buy: form.buyPrice,
-                    rentPerDay: form.rentPerDay,
+                    buy: form.buyPrice
                 },
                 images: uploadedImages,
                 video: uploadedVideo,
@@ -94,7 +86,6 @@ const AddJewelry = () => {
             setForm({
                 name: "",
                 buyPrice: "",
-                rentPerDay: "",
                 category: "",
                 description: "",
             });
@@ -125,7 +116,7 @@ const AddJewelry = () => {
                         Add New Jewelry
                     </h2>
                     <p className="text-sm mt-2">
-                        Add jewelry with Buy & Rent (per day) pricing.
+                        Add jewelry with Buy pricing.
                     </p>
                 </div>
 
@@ -150,8 +141,8 @@ const AddJewelry = () => {
                         />
                     </div>
 
-                    {/* Prices */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Price */}
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                         <div>
                             <label className="block text-sm font-semibold mb-2">
                                 Buy Price (₹)
@@ -161,21 +152,6 @@ const AddJewelry = () => {
                                 name="buyPrice"
                                 placeholder="7999"
                                 value={form.buyPrice}
-                                onChange={handleChange}
-                                required
-                                className="w-full rounded-xl border border-slate-300 bg-[#340B53] px-4 py-3 text-sm"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-semibold mb-2">
-                                Rent Price / Day (₹)
-                            </label>
-                            <input
-                                type="number"
-                                name="rentPerDay"
-                                placeholder="499 / day"
-                                value={form.rentPerDay}
                                 onChange={handleChange}
                                 required
                                 className="w-full rounded-xl border border-slate-300 bg-[#340B53] px-4 py-3 text-sm"

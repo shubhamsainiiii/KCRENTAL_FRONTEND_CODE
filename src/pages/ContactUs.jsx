@@ -48,10 +48,10 @@ const ContactUs = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const phoneNumber = "919116952396";
+        const phoneNumber = "917691888950";
 
         const text = `
-New enquiry from KCRental website
+New enquiry from Tarkashi Jewellers website
 Name: ${formData.name}
 Email: ${formData.email}
 Message: ${formData.message}
@@ -147,7 +147,7 @@ Message: ${formData.message}
                     </motion.h2>
 
                     <p className="mb-8">
-                        Have a question or looking for the perfect outfit?
+                        Have a question or looking for the perfect jewelry?
                         <br />
                         <span className="font-semibold ">
                             We’re just a message away

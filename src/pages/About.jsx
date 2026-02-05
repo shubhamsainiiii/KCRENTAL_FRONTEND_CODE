@@ -75,7 +75,7 @@ const About = () => {
                         About Us
                     </h1>
                     <p className="text-base md:text-xl text-gray-200 max-w-2xl mx-auto">
-                        Redefining luxury fashion with accessibility and elegance.
+                        Redefining luxury jewelry with accessibility and elegance.
                     </p>
                 </motion.div>
             </section>
@@ -99,9 +99,9 @@ const About = () => {
                             <div className="w-20 h-1 bg-[#e2b82e]" />
 
                             <p className="text-lg text-[#e2b82e] leading-relaxed">
-                                KC Rental Outfits & Boutique started with a simple idea —
+                                Tarkashi Jewellers started with a simple idea —
                                 <span className="font-semibold">
-                                    {" "}why buy expensive outfits that you only wear once?
+                                    {" "}why buy expensive jewelry that you only wear once?
                                 </span>
                             </p>
 
@@ -109,25 +109,25 @@ const About = () => {
                                 We believed that everyone deserves to look extraordinary on their
                                 special moments without spending a fortune. What began as a small,
                                 thoughtfully curated collection soon transformed into a trusted
-                                destination for premium rental fashion.
+                                destination for fine jewelry.
                             </p>
 
                             <p className="text-lg text-[#e2b82e] leading-relaxed">
-                                From a humble beginning to a collection of over{" "}
-                                <span className="font-semibold">6000+ designer outfits</span>,
+                                From a humble beginning to a collection of{" "}
+                                <span className="font-semibold">exquisite jewelry pieces</span>,
                                 we proudly serve thousands of fashion-forward customers across
                                 weddings, engagements, festivals, sangeet nights, receptions,
                                 and grand celebrations.
                             </p>
                             <p className="text-lg text-[#e2b82e] leading-relaxed">
-                                We focus on quality, fit, and detailing — ensuring every garment
+                                We focus on quality and detailing — ensuring every jewelry piece
                                 feels as luxurious as it looks. With personalized styling support
-                                and flexible rental options, we make designer fashion accessible,
+                                and curated collections, we make luxury accessible,
                                 affordable, and unforgettable.
                             </p>
 
                             <p className="text-lg text-[#e2b82e] leading-relaxed">
-                                At KC Rental Outfits & Boutique, we don’t just rent outfits —
+                                At Tarkashi Jewellers, we don’t just craft jewelry —
                                 <span className="font-semibold">
                                     {" "}we help you create memories, confidence, and timeless moments.
                                 </span>
@@ -194,7 +194,7 @@ const About = () => {
                         {
                             icon: <FaHistory className="text-4xl text-[#e2b82e]" />,
                             title: "Our Journey",
-                            desc: "From a boutique to a trusted rental destination."
+                            desc: "From a boutique to a trusted jewelry destination."
                         },
                         {
                             icon: <FaBullseye className="text-4xl text-[#e2b82e]" />,
@@ -231,7 +231,7 @@ const About = () => {
                     className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
                 >
                     {[
-                        { number: "6000+", label: "Outfits" },
+                        { number: "6000+", label: "Jewelry Pieces" },
                         { number: "5000+", label: "Happy Clients" },
                         { number: "10+", label: "Years Experience" },
                         { number: "4.9", label: "Star Rating" },
@@ -262,16 +262,10 @@ const About = () => {
                         Join Our Growing Family
                     </h2>
                     <p className="text-lg text-[#e2b82e] mb-10">
-                        Rent, buy, or explore — fashion made smarter with KC Rental.
+                        Buy or explore — elegance crafted by Tarkashi Jewellers.
                     </p>
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center">
-                        <button
-                            onClick={() => navigate("/garments")}
-                            className="px-8 py-3  text-[#e2b82e] rounded-full font-semibold hover:bg-yellow-500/90 transition-all duration-500  border border-yellow-400 cursor-pointer hover:text-black"
-                        >
-                            Explore Garments
-                        </button>
                         <button
                             onClick={() => navigate("/jewelry")}
                             className="px-8 py-3  text-[#e2b82e] rounded-full font-semibold hover:bg-yellow-500/90 transition-all duration-500  border border-yellow-400 cursor-pointer hover:text-black"

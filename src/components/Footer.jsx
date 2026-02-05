@@ -3,15 +3,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
-import { GiClothes, GiSewingMachine } from "react-icons/gi";
+import { GiSewingMachine } from "react-icons/gi";
+import { FaGem } from "react-icons/fa";
 import { MdVerified, MdPayments } from "react-icons/md";
 
 
 const footerItems = [
-    { icon: <GiClothes size={34} />, text: "6000+ Designer Wear" },
-    { icon: <MdVerified size={34} />, text: "Premium Quality Fabrics" },
+    { icon: <FaGem size={34} />, text: "Premium Jewelry Collection" },
+    { icon: <MdVerified size={34} />, text: "Authentic & Hygienic Pieces" },
     { icon: <MdPayments size={34} />, text: "Pay on Store Pickup" },
-    { icon: <GiSewingMachine size={34} />, text: "Perfect Fit & Alteration Support" },
+    { icon: <GiSewingMachine size={34} />, text: "Styling Support" },
 ];
 
 const footerLinks = [
@@ -43,7 +44,7 @@ const Footer = () => {
             <div className="text-center py-5">
                 <motion.a
                     whileHover={{ scale: 1.05 }}
-                    href="https://www.instagram.com/kc_rentaloutfit_boutique"
+                    href="https://www.instagram.com/tarkashi_jewellers"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 border border-gold-500 text-gold-500 px-6 py-3 rounded-full hover:bg-gold-500  text-md transition-all duration-500"
@@ -83,7 +84,7 @@ const Footer = () => {
 
             {/* COPYRIGHT */}
             <div className="text-gold text-center py-2 text-sm">
-                © {new Date().getFullYear()} KC_RENTAL OUTFITS — All Rights Reserved
+                © {new Date().getFullYear()} Tarkashi Jewellers — All Rights Reserved
             </div>
 
         </footer>

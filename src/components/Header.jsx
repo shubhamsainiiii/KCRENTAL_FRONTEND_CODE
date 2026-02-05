@@ -10,7 +10,6 @@ const Header = () => {
     const menuItems = [
         { name: "HOME", path: "/" },
         { name: "ABOUT", path: "/about" },
-        { name: "GARMENTS", path: "/garments" },
         { name: "JEWELRY", path: "/jewelry" },
         { name: "OUR SERVICES", path: "/services" },
         { name: "CONTACT", path: "/contact" },
@@ -55,7 +54,7 @@ const Header = () => {
             <NavLink to="/" className="flex items-center gap-2">
                 <img
                     src={logo}
-                    alt="KC Rental Logo"
+                    alt="Tarkashi Jewellers Logo"
                     className="h-14 sm:h-13 w-auto object-contain mt-0.5"
                 />
             </NavLink>

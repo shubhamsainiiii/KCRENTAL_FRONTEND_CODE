@@ -46,16 +46,13 @@ const stagger = {
 
 const Home = () => {
   const navigate = useNavigate();
-  const [garments, setGarments] = useState([]);
   const [jewelry, setJewelry] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const gRes = await API.get("/garment/all");
         const jRes = await API.get("/jewelry/all");
 
-        setGarments(gRes.data.slice(0, 4));
         setJewelry(jRes.data.slice(0, 4));
       } catch (err) {
         console.error("Home API Error:", err);
@@ -82,9 +79,9 @@ const Home = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {[
-            { title: "RENT", text: "Rent Designer Wear", img: rent, path: "/garments" },
-            { title: "BUY", text: "Pre-loved Luxury Styles", img: buy, path: "/garments" },
-            { title: "SERVICES", text: "Styling & Jewelry Rental", img: sell, path: "/services" },
+            { title: "SHOP", text: "Explore Exquisite Jewelry", img: rent, path: "/jewelry" },
+            { title: "BUY", text: "Premium Jewelry Collection", img: buy, path: "/jewelry" },
+            { title: "SERVICES", text: "Styling & Jewelry", img: sell, path: "/services" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -117,74 +114,8 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* ================= GARMENTS ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-[#e2b82e]">Garments</h2>
-          <p className="text-yellow-300 mt-2">
-            Curated designer wear for every occasion
-          </p>
-        </div>
-
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
-        >
-          {garments.map((item) => (
-            <motion.div
-              key={item._id}
-              variants={fadeUp}
-              onClick={() => navigate(`/garments/${item._id}`)}
-              className="bg-[#340B53] rounded-3xl shadow-xl p-4 cursor-pointer hover:scale-[1.02] transition-all"
-            >
-              {/* IMAGE FRAME (SAME AS GARMENTS PAGE) */}
-              <div className="rounded-2xl bg-[#340B53] p-3">
-                <div className="aspect-3/4 rounded-xl overflow-hidden">
-                  <LazyLoadImage
-                    src={getImageUrl(item.images?.[0]?.url)}
-                    alt={item.name}
-                    effect="blur"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* CONTENT */}
-              <div className="pt-4 px-2">
-                <h3 className="text-[#e2b82e] font-semibold text-lg leading-snug">
-                  {item.name}
-                </h3>
-
-                <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
-                  {item.category}
-                </p>
-
-                <p className="mt-3 font-semibold text-[#e2b82e]">
-                  Rent ₹{item.price?.rentPerDay}/day
-                </p>
-                <p className="font-semibold text-[#e2b82e]">
-                  Buy ₹{item.price?.buy}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="text-center mt-14">
-          <button
-            onClick={() => navigate("/garments")}
-            className="inline-flex font-semibold text-[#e2b82e] hover:text-black items-center gap-3 px-10 py-3 rounded-full border border-yellow-400 hover:bg-yellow-500/90 transition-all duration-500 cursor-pointer"
-          >
-            Explore All Garments <FaArrowRight />
-          </button>
-        </div>
-      </section>
-
       {/* ================= JEWELRY ================= */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
+      <section className="max-w-7xl mx-auto px-6 mt-20 pb-20">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-[#e2b82e]">Exquisite Jewelry</h2>
           <p className="text-yellow-300 mt-2">
@@ -219,9 +150,6 @@ const Home = () => {
                   {item.category}
                 </p>
 
-                <p className="mt-3 font-semibold text-[#e2b82e]">
-                  Rent ₹{item.price?.rentPerDay}/day
-                </p>
                 <p className="font-semibold text-[#e2b82e]">
                   Buy ₹{item.price?.buy}
                 </p>

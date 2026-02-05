@@ -45,20 +45,17 @@ const JewelryDetails = () => {
     const [selectedSize, setSelectedSize] = useState("M");
     const [loading, setLoading] = useState(true);
 
-    const sendWhatsApp = (action) => {
+    const sendWhatsApp = () => {
         if (!jewelry) return;
 
-        const phone = "919116952396";
+        const phone = "917691888950";
         const itemLink = `${window.location.origin}/jewelry/${id}`;
 
-        const priceText =
-            action === "rent"
-                ? `Rent Price: ₹${jewelry.price?.rentPerDay}/day`
-                : `Buy Price: ₹${jewelry.price?.buy}`;
+        const priceText = `Buy Price: ₹${jewelry.price?.buy}`;
 
         const text =
-            `Hello KC Rental,\n` +
-            `I want to ${action} this jewelry:\n` +
+            `Hello Tarkashi Jewellers,\n` +
+            `I want to buy this jewelry:\n` +
             `Name: ${jewelry.name}\n` +
             `Category: ${jewelry.category}\n` +
             `${priceText}\n` +
@@ -203,9 +200,6 @@ const JewelryDetails = () => {
 
                     <p className="text-[#e2b82e] mb-4">Category : {jewelry.category}</p>
 
-                    <p className="text-2xl text-[#e2b82e] font-semibold mb-1">
-                        Rent ₹ : {jewelry.price?.rentPerDay}/day
-                    </p>
                     <p className="text-2xl text-[#e2b82e] font-semibold mb-6">
                         Buy ₹ : {jewelry.price?.buy}
                     </p>
@@ -245,16 +239,7 @@ const JewelryDetails = () => {
                         <motion.button
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => sendWhatsApp("rent")}
-                            className="flex-1 py-3 rounded-full border border-yellow-400 text-[#e2b82e] hover:text-black hover:bg-yellow-500/90 transition-all duration-500 font-semibold cursor-pointer"
-                        >
-                            Rent Now
-                        </motion.button>
-
-                        <motion.button
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => sendWhatsApp("buy")}
+                            onClick={sendWhatsApp}
                             className="flex-1 py-3 rounded-full text-black hover:text-black bg-[#e2b82e]  transition-all duration-300 font-semibold cursor-pointer"
                         >
                             Buy Now

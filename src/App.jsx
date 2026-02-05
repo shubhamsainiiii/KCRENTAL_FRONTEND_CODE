@@ -7,8 +7,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import ScrollToTop from "./components/ScrollToTop";
-import Garments from "./pages/Garments";
-import GarmentDetails from "./pages/GarmentDetails";
 import Jewelry from "./pages/Jewelry";
 import JewelryDetails from "./pages/JewelryDetails";
 import Login from "./Admin/Login";
@@ -26,8 +24,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/garments" element={<Garments />} />
-          <Route path="/garments/:id" element={<GarmentDetails />} />
           <Route path="/jewelry" element={<Jewelry />} />
           <Route path="/jewelry/:id" element={<JewelryDetails />} />
           <Route path="/services" element={<OurServices />} />

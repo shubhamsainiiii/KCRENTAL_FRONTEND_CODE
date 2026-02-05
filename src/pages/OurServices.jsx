@@ -11,32 +11,18 @@ import bannerMobile from "../assets/images/slidermobile1.jpg";
 const services = [
     {
         id: 1,
-        title: "Premium Outfit Rental",
-        desc: "Rent exclusive designer lehengas, gowns, and sarees for your special occasions without burning a hole in your pocket.",
-        icon: <FaTshirt size={40} className="text-[#340B53]" />,
-        link: "/garments"
-    },
-    {
-        id: 2,
-        title: "Custom Stitching",
-        desc: "Have a design in mind? Our expert tailors can bring your dream outfit to life with perfect fitting and finishing.",
-        icon: <FaCut size={40} className="text-[#340B53]" />,
-        link: "/contact"
-    },
-    {
-        id: 3,
         title: "Exquisite Jewelry",
-        desc: "Complete your look with our stunning collection of necklaces, earrings, and bangles available for rent.",
+        desc: "Complete your look with our stunning collection of necklaces, earrings, and bangles.",
         icon: <FaGem size={40} className="text-[#340B53]" />,
         link: "/jewelry"
     },
     {
-        id: 4,
-        title: "Personal Styling",
-        desc: "Not sure what suits you best? Get personalized style advice from our fashion experts to look your best.",
-        icon: <FaUserTie size={40} className="text-[#340B53]" />,
-        link: "/contact"
-    },
+        id: 1,
+        title: "Exquisite Jewelry",
+        desc: "Complete your look with our stunning collection of necklaces, earrings, and bangles.",
+        icon: <FaGem size={40} className="text-[#340B53]" />,
+        link: "/jewelry"
+    }
 ];
 
 /* ================= ANIMATION VARIANTS ================= */
@@ -91,7 +77,7 @@ const OurServices = () => {
                         transition={{ duration: 1.9, ease: "easeOut" }}
                         className="text-white/90 text-lg md:text-xl max-w-2xl"
                     >
-                        Experience fashion like never before with our premium rental and customization services.
+                        Discover premium jewelry for weddings and special occasions.
                     </motion.p>
                 </div>
             </section>
@@ -171,11 +157,11 @@ const OurServices = () => {
                     className="max-w-4xl mx-auto text-center"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                        Ready to Transform Your Look?
+                        Ready to Elevate Your Look?
                     </h2>
 
                     <p className="text-[#e2b82e] text-lg mb-10">
-                        Visit our boutique or contact us today to find your perfect outfit.
+                        Visit our boutique or contact us today to find your perfect jewelry.
                     </p>
 
                     <motion.button

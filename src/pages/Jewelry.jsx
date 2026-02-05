@@ -147,9 +147,6 @@ const Jewelry = () => {
                                 <p className="uppercase text-sm text-[#e2b82e]/80 mt-1">
                                     {item.category}
                                 </p>
-                                <p className="mt-3 font-semibold text-[#e2b82e]">
-                                    Rent ₹{item.price?.rentPerDay}/day
-                                </p>
                                 <p className="font-semibold text-[#e2b82e]">
                                     Buy ₹{item.price?.buy}
                                 </p>

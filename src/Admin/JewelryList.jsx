@@ -133,8 +133,7 @@ const JewelryList = () => {
                 description: editJewelry.description,
                 isActive: editJewelry.isActive,
                 price: {
-                    buy: editJewelry.price.buy,
-                    rentPerDay: editJewelry.price.rentPerDay,
+                    buy: editJewelry.price.buy
                 },
                 images: uploadedImages,
                 video: uploadedVideo,
@@ -171,8 +170,8 @@ const JewelryList = () => {
                         }
                     />
 
-                    {/* Prices */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    {/* Price */}
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mb-4">
                         <input
                             type="number"
                             placeholder="Buy Price"
@@ -184,22 +183,6 @@ const JewelryList = () => {
                                     price: {
                                         ...editJewelry.price,
                                         buy: e.target.value,
-                                    },
-                                })
-                            }
-                        />
-
-                        <input
-                            type="number"
-                            placeholder="Rent / Day"
-                            className="w-full rounded-xl border border-slate-300 bg-[#340B53] px-4 py-3"
-                            value={editJewelry.price.rentPerDay}
-                            onChange={(e) =>
-                                setEditJewelry({
-                                    ...editJewelry,
-                                    price: {
-                                        ...editJewelry.price,
-                                        rentPerDay: e.target.value,
                                     },
                                 })
                             }

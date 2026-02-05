@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import AddGarment from "./AddGarment";
-import GarmentList from "./GarmentList";
+
 import AddJewelry from "./AddJewelry";
 import JewelryList from "./JewelryList";
 
